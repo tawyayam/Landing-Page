@@ -1,0 +1,327 @@
+/* Global Styles */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #45d542;
+  --primary-alt: #0db908;
+  --secondary: #dddbff;
+  --background: #eaede8;
+  --text: #030803;
+  --white: #fff;
+  --gray-color: #777;
+  --accent: #bbf547;
+  --transition: 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  background-color: var(--background);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.my-section {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .my-section {
+    width: 750px;
+  }
+}
+
+/* Medium Devices */
+@media (min-width: 992px) {
+  .my-section {
+    width: 970px;
+  }
+}
+
+/* Large Devices */
+@media (min-width: 1200px) {
+  .my-section {
+    width: 1170px;
+  }
+}
+
+section.highlighted {
+  position: relative;
+}
+
+section.highlighted::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #362ce762;
+  width: 100%;
+  height: 100%;
+}
+
+.heading {
+  text-align: center;
+  font-size: 30px;
+  width: fit-content;
+  margin: 13px auto;
+  color: var(--text);
+  position: relative;
+}
+
+.heading::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background-color: var(--text);
+}
+
+.btn {
+  background-color: var(--primary);
+  padding: 10px 14px;
+  color: var(--white);
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 20px 80px -10px var(--primary);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--primary-alt);
+}
+
+/* TODO: Header Styling */
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  min-height: 73px;
+  display: flex;
+  transition: var(--transition);
+  z-index: 99;
+}
+header.scroll {
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav .logo {
+  color: var(--primary);
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+header nav #navbar_list {
+  display: flex;
+}
+
+header nav #navbar_list .list {
+  text-align: center;
+  padding: 0 30px;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+header.scroll #navbar_list .list a {
+  color: var(--text);
+}
+
+header nav #navbar_list .list.active {
+  background-color: var(--primary-alt);
+}
+
+header nav #navbar_list .list.active a {
+  color: var(--white);
+}
+
+header nav #navbar_list .list a {
+  color: var(--white);
+  font-size: 18px;
+}
+
+/* Home Page Styling */
+.home {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(../images/background.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home .home-text {
+  max-width: 600px;
+  color: var(--white);
+  position: relative;
+  bottom: -30px;
+}
+
+.home .home-text h2 {
+  font-size: 40px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.home .home-text h2 span {
+  color: var(--primary);
+}
+
+.home .home-text p {
+  margin-top: 20px;
+  font-size: 17px;
+  color: var(--secondary);
+}
+
+.home-text .search-book {
+  margin-top: 40px;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.25) 1.95px 1.95px 2.6px;
+}
+
+.home-text .search-book input {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 0 20px 0 20px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: var(--text);
+}
+
+input::placeholder {
+  color: var(--gray-color);
+  font-size: 16px;
+}
+
+.home-text .search-book button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 12px 20px;
+  border-top-right-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: var(--primary-alt);
+  color: var(--white);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* TODO: Books Page Styling */
+.books {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+.books .my-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.books .my-section .book {
+  text-align: center;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 1.95px 1.95px 2.6px;
+}
+
+.books .my-section .book img {
+  max-width: 100%;
+}
+
+/* TODO: Most Read Styling */
+.recents {
+  background-color: #fff;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+/* TODO: About Section Styling */
+.about {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+.about .my-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about .my-section .about-text {
+  max-width: 600px;
+}
+
+.about .about-text h2 {
+  color: var(--text);
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.about .my-section .about-img img {
+  height: 500px;
+}
+
+/*TODO: Responsiveness */
+/* Very Small Devices */
+@media (max-width: 548px) {
+  header nav #navbar_list .list {
+    padding: 0 7px;
+    border-radius: 0;
+  }
+}
+/* Small Devices */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+  }
+
+  header nav .logo {
+    font-size: 22px;
+  }
+}
+
+/* Medium Devices */
+@media (max-width: 991px) {
+  .about .my-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
